@@ -1,5 +1,5 @@
 {
-	"name": "node-red-contrib-http-ntlm-req",
+	"name": "@idanzel/node-red-contrib-http-ntlm-req",
 	"description": "HTTP request with NTLM",
 	"version": "0.1.0",
 	"repository": {
