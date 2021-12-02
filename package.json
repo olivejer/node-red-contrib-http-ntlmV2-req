@@ -4,7 +4,7 @@
 	"version": "0.1.0",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dmvstar/node-red-contrib-http-ntlm-req.git"
+		"url": "git+https://github.com/IdanZel/node-red-contrib-http-ntlm-req.git"
 	},
 	"node-red": {
 		"nodes": {
@@ -32,6 +32,10 @@
 			"name": "Chebotarov",
 			"email": "swiftshade@gmail.com",
 			"url": "https://github.com/ArcanePhysics"
+		},
+		{
+			"name": "IdanZel",
+			"url": "https://github.com/IdanZel"
 		}
 	]
 }
