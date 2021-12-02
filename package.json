@@ -1,7 +1,7 @@
 {
 	"name": "@idanzel/node-red-contrib-http-ntlm-req",
 	"description": "HTTP request with NTLM",
-	"version": "0.1.0",
+	"version": "0.1.4",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/IdanZel/node-red-contrib-http-ntlm-req.git"

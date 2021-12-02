@@ -2,13 +2,14 @@
     RED.nodes.registerType('http-ntlm-req-config', {
         category: 'config',
         defaults: {
-            name: {value: "",  required: true},
-            user: {value: "",  required: false},
-            pass: {value: "",  required: false},
-            key:  {value: "",  required: false},
-            cert: {value: "",  required: false},
-            token: {value: "", required: false},
-            doman: {value: "", required: false}
+            name: { value: "", required: true },
+            user: { value: "", required: false },
+            pass: { value: "", required: false },
+            key: { value: "", required: false },
+            cert: { value: "", required: false },
+            token: { value: "", required: false },
+            doman: { value: "", required: false },
+            parsejson: { value: false, required: false }
         },
         label: function () {
             return this.name;
@@ -46,6 +47,10 @@
         <label for="node-config-input-doman"><i class="fa fa-doman"></i> Domain</label>
         <input type="text" id="node-config-input-doman">
     </div>
+    <div class="form-row">
+        <input type="checkbox" id="node-config-input-parsejson" style="display: inline-block; width: auto; vertical-align: top;" autocomplete="off">
+        <label for="node-config-input-parsejson" style="width: auto">Parse response payload to JSON</label>
+    </div>
 </script>
 
 
@@ -59,5 +64,3 @@
         </ul>
     </p>
 </script>
-
-

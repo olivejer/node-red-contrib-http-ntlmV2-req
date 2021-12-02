@@ -23,7 +23,7 @@ module.exports = function (RED) {
 				resetStatus();
 
 				if (res !== undefined && res.body !== undefined) {
-					msg.payload = res.body;
+					msg.payload = node.authconf.parsejson ? JSON.parse(res.body) : res.body;
 					if (res.statusCode !== 200) {
 						raiseError('Response from server: ' + res.statusCode, msg);
 					}
