@@ -48,20 +48,20 @@ module.exports = function (RED) {
 			switch (node.method) {
 				case 0: // GET
 					{
-						connData.url = node.url + msg.payload;
+						connData.url = node.url + msg.params;
 						httpntlm.get(connData, requestCallback);
 						break;
 					}
 				case 1: // POST
 					{
-						connData.url = node.url;
+						connData.url = node.url + msg.params;
 						connData.body = msg.payload;
 						httpntlm.post(connData, requestCallback);
 						break;
 					}
 				case 2: // PUT
 					{
-						connData.url = node.url;
+						connData.url = node.url + msg.params;
 						connData.body = msg.payload;
 						httpntlm.put(connData, requestCallback);
 						break;
