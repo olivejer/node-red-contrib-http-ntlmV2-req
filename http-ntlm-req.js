@@ -59,6 +59,13 @@ module.exports = function (RED) {
 						httpntlm.post(connData, requestCallback);
 						break;
 					}
+				case 2: // PUT
+					{
+						connData.url = node.url;
+						connData.body = msg.payload;
+						httpntlm.put(connData, requestCallback);
+						break;
+					}
 				default:
 					{
 						raiseError('No method defined!', msg);
