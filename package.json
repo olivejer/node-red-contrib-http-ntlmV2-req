@@ -1,10 +1,10 @@
 {
-	"name": "@idanzel/node-red-contrib-http-ntlm-req",
+	"name": "@BetaAthe/node-red-contrib-http-ntlm-req",
 	"description": "HTTP request with NTLM",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/IdanZel/node-red-contrib-http-ntlm-req.git"
+		"url": "git+https://github.com/BetaAthe/node-red-contrib-http-ntlm-req.git"
 	},
 	"node-red": {
 		"nodes": {
@@ -36,6 +36,10 @@
 		{
 			"name": "IdanZel",
 			"url": "https://github.com/IdanZel"
+		},
+		{
+			"name": "BetaAthe",
+			"url": "https://github.com/BetaAthe"
 		}
 	]
 }
