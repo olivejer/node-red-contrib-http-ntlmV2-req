@@ -39,6 +39,7 @@
         <select type="text" id="node-input-method">
             <option value="0">GET</option>
             <option value="1">POST</option>
+	    <option value="2">PUT</option>
         </select>
     </div>
 
@@ -51,9 +52,15 @@
     <p>
         <ul>
 	            <li>If defined msg.method then override selected method in node.</li>
-	            <li>For GET method msg.payload used as additional for url (for example ?wsdl for get WSDL or ?param1=1&amp;param2=2).</li>
-	            <li>For POST method msg.payload used as content for post.</li>
+	            <li>For GET method msg.payload is concated to the url (for example ?wsdl to get URL?WSDL or URL?param1=1&amp;param2=2).</li>
+	            <li>For POST method msg.payload used as content for body.</li>
+		    <li>For PUT method msg.payload used as content for body.</li>
         </ul>
+    </p>
+    <p>You can also define msg.headers with a dictonary of headers:
+    msg.headers = {
+       'Accept': 'application/json, text/plain, */*',
+    }
     </p>
 		
 </script>
