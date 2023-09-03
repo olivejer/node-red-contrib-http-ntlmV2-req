@@ -1,5 +1,5 @@
 {
-	"name": "@BetaAthe/node-red-contrib-http-ntlm-req",
+	"name": "@betaathe/node-red-contrib-http-ntlm-req",
 	"description": "HTTP request with NTLM",
 	"version": "0.1.5",
 	"repository": {
