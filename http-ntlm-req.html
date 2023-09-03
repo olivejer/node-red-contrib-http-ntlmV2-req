@@ -52,11 +52,12 @@
     <p>
         <ul>
 	            <li>If defined msg.method then override selected method in node.</li>
-	            <li>For GET method msg.payload is concated to the url (for example ?wsdl to get URL?WSDL or URL?param1=1&amp;param2=2).</li>
+	            <li>For GET method msg.payload is not used.</li>
 	            <li>For POST method msg.payload used as content for body.</li>
 		    <li>For PUT method msg.payload used as content for body.</li>
         </ul>
     </p>
+	<p>You can use in all three methods the msg.params value, that is going to be concatenated to the url (for example, given a url https://example.com and msg.params="?param1=1&amp;param2=2", the final URL is going to be https://example.com?param1=1&amp;param2=2)</p>
     <p>You can also define msg.headers with a dictonary of headers:
     msg.headers = {
        'Accept': 'application/json, text/plain, */*',
