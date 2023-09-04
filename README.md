@@ -11,3 +11,4 @@ To set up HTTP request, create a new auth config:
 ## Modifications
 * Added PUT support
 * Added compatibility with msg.params, to allow to add parameters to the end of the URL in all three methods.
+* Solved some bugs
