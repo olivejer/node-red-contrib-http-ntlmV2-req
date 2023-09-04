@@ -35,7 +35,7 @@ module.exports = function (RED) {
 			};
 
 			var defaultHeader = (typeof msg.headers==='undefined')?{}:msg.headers;
-			defaultHeader['Content-Type'] = 'application/json';
+			defaultHeader['Content-Type'] = (typeof defaultHeader['Content-Type']==='undefined')?'application/json':defaultHeader['Content-Type'];
 
 			const connData = {
 				username: node.authconf.user,
@@ -45,24 +45,24 @@ module.exports = function (RED) {
 				headers: defaultHeader
 			};
 
-			var msg.params = (typeof msg.params==='undefined')?"":msg.params;
+			var params = (typeof msg.params==='undefined')?"":msg.params;
 			switch(parseInt(node.method)){
 				case 0: // GET
 					{
-						connData.url = node.url + msg.params;
+						connData.url = node.url + params;
 						httpntlm.get(connData, requestCallback);
 						break;
 					}
 				case 1: // POST
 					{
-						connData.url = node.url + msg.params;
+						connData.url = node.url + params;
 						connData.body = msg.payload;
 						httpntlm.post(connData, requestCallback);
 						break;
 					}
 				case 2: // PUT
 					{
-						connData.url = node.url + msg.params;
+						connData.url = node.url + params;
 						connData.body = msg.payload;
 						httpntlm.put(connData, requestCallback);
 						break;
