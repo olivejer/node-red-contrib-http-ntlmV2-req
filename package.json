@@ -1,7 +1,7 @@
 {
 	"name": "@betaathe/node-red-contrib-http-ntlm-req",
 	"description": "HTTP request with NTLM",
-	"version": "0.1.9",
+	"version": "0.1.10",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/BetaAthe/node-red-contrib-http-ntlm-req.git"
