@@ -34,7 +34,7 @@ module.exports = function (RED) {
 				node.send(msg);
 			};
 
-			var defaultHeader = msg.headers || {};
+			var defaultHeader = (typeof msg.headers==='undefined')?{}:msg.headers;
 			defaultHeader['Content-Type'] = 'application/json';
 
 			const connData = {
@@ -45,7 +45,8 @@ module.exports = function (RED) {
 				headers: defaultHeader
 			};
 
-			switch (node.method) {
+			var msg.params = (typeof msg.params==='undefined')?"":msg.params;
+			switch(parseInt(node.method)){
 				case 0: // GET
 					{
 						connData.url = node.url + msg.params;
