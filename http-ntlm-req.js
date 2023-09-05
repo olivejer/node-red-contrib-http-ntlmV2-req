@@ -23,8 +23,9 @@ module.exports = function (RED) {
 				resetStatus();
 
 				if (res !== undefined && res.body !== undefined) {
-					msg.payload = node.authconf.parsejson ? JSON.parse(res.body) : res.body;
-					if (res.statusCode !== 200) {
+					//msg.payload = JSON.parse(res.body);
+					msg.payload = res.body;
+					if(res.statusCode>=400) {
 						raiseError('Response from server: ' + res.statusCode, msg);
 					}
 				} else {
@@ -35,7 +36,8 @@ module.exports = function (RED) {
 			};
 
 			var defaultHeader = (typeof msg.headers==='undefined')?{}:msg.headers;
-			defaultHeader['Content-Type'] = (typeof defaultHeader['Content-Type']==='undefined')?'application/json':defaultHeader['Content-Type'];
+			var params = (typeof msg.params==='undefined')?"":msg.params;
+			var url = (typeof msg.url==='undefined')?node.url:msg.url;
 
 			const connData = {
 				username: node.authconf.user,
@@ -45,25 +47,30 @@ module.exports = function (RED) {
 				headers: defaultHeader
 			};
 
-			var params = (typeof msg.params==='undefined')?"":msg.params;
 			switch(parseInt(node.method)){
 				case 0: // GET
 					{
-						connData.url = node.url + params;
+						connData.url = url + params;
 						httpntlm.get(connData, requestCallback);
 						break;
 					}
 				case 1: // POST
 					{
-						connData.url = node.url + params;
-						connData.body = msg.payload;
+						connData.url = url + params;
+						if(msg.payload!==undefined){
+							connData.body = JSON.stringify(msg.payload);
+							connData.defaultHeader['Content-Type'] = (typeof connData.defaultHeader['Content-Type']==='undefined')?'application/json':connData.defaultHeader['Content-Type'];
+						}
 						httpntlm.post(connData, requestCallback);
 						break;
 					}
 				case 2: // PUT
 					{
-						connData.url = node.url + params;
-						connData.body = msg.payload;
+						connData.url = url + params;
+						if(msg.payload!==undefined){
+							connData.body = JSON.stringify(msg.payload);
+							connData.defaultHeader['Content-Type'] = (typeof connData.defaultHeader['Content-Type']==='undefined')?'application/json':connData.defaultHeader['Content-Type'];
+						}
 						httpntlm.put(connData, requestCallback);
 						break;
 					}

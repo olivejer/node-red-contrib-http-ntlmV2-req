@@ -1,7 +1,7 @@
 {
 	"name": "@betaathe/node-red-contrib-http-ntlm-req",
 	"description": "HTTP request with NTLM",
-	"version": "0.1.10",
+	"version": "0.2.0",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/BetaAthe/node-red-contrib-http-ntlm-req.git"
@@ -13,12 +13,13 @@
 		}
 	},
 	"dependencies": {
-		"httpntlm": "^1.7.7"
+		"httpntlm": "^1.8.13"
 	},
 	"keywords": [
 		"node-red",
 		"http",
-		"ntlm"
+		"ntlm",
+		"auth"
 	],
 	"main": "index.js",
 	"license": "MIT",
