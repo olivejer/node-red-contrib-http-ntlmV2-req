@@ -1,7 +1,10 @@
 # node-red-contrib-http-ntlmV2-req
 Node-red nodes that allow users to send HTTP request with NTLM auth.
 
-Forked from: [https://github.com/IdanZel/node-red-contrib-http-ntlm-req](https://github.com/BetaAthe/node-red-contrib-http-ntlm-req)
+Forked from: 
+[https://github.com/BetaAthe/node-red-contrib-http-ntlm-req] https://github.com/BetaAthe/node-red-contrib-http-ntlm-req)
+and
+[https://github.com/IdanZel/node-red-contrib-http-ntlm-req] (https://github.com/BetaAthe/node-red-contrib-http-ntlm-req)
 
 ## Modifications
 * Added ntlmV2 support
