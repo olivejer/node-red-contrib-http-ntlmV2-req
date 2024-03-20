@@ -1,21 +1,17 @@
-# node-red-contrib-http-ntlm-req
+# node-red-contrib-http-ntlmV2-req
 Node-red nodes that allow users to send HTTP request with NTLM auth.
 
-Forked from: https://github.com/IdanZel/node-red-contrib-http-ntlm-req
+Forked from: [https://github.com/IdanZel/node-red-contrib-http-ntlm-req](https://github.com/BetaAthe/node-red-contrib-http-ntlm-req)
 
 ## Modifications
-* Added PUT support
-* Added compatibility with msg.params, to allow to add parameters to the end of the URL in all three methods.
-* Solved some minor bugs
-* Removed unused config params
-* Added msg.url to change the URL of the node
-* Content-type is now set on POST and PUT to application/json if not set. You can overwrite it at any moment with msg.headers["Content-Type"]
-* Now only 4XX and 5XX status codes are marked as an error.
+* Added ntlmV2 support
+
 
 ## Usage
 To set up HTTP request, create a new auth config:
 * Enter the URL address to the `URL` field. 
 * Fill in the *Username*, *Password* and *Domain* if needed.
+* Select protocol ntlmV1 or ntlmV2 (default is ntlmV1)
 
 Then, set up the node:
 * Set a name
