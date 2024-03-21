@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-	function HttpNtlmReqNode(config) {
+	function HttpNtlmV2ReqNode(config) {
 		var httpntlm = require('httpntlm');
 		var ntlm = httpntlm.ntlm;
 
@@ -40,27 +40,39 @@ module.exports = function (RED) {
 
 			var params = (typeof msg.params==='undefined')?"":msg.params;
 			var url = (typeof msg.url==='undefined')?node.url:msg.url;
-
-			if(node.protocol == 1) { //ntlmV1
-				const connData = {
-					username: node.authconf.user,
-					password: node.authconf.pass,
-					domain: node.authconf.doman,
-					workstation: '',
-					headers: (typeof msg.headers==='undefined')?{}:msg.headers
-				};
+			
+			switch(parseInt(node.protocol)){ 
+				case 1: //ntlmV1
+					{
+						const connData = {
+							username: node.authconf.user,
+							password: node.authconf.pass,
+							domain: node.authconf.doman,
+							workstation: '',
+							headers: (typeof msg.headers==='undefined')?{}:msg.headers
+						};
+						break;
+					}
+				case 2: //ntlmV2
+					{
+						const connData = {
+							username: node.authconf.user,
+							lm_password: httpntlm.ntlm.create_LM_hashed_password(node.authconf.pass),
+							nt_password: httpntlm.ntlm.create_NT_hashed_password(node.authconf.pass),
+							domain: node.authconf.doman,
+							workstation: '',
+							headers: (typeof msg.headers==='undefined')?{}:msg.headers
+						};
+						break;
+					}
+				
+				default:
+					{
+						raiseError('No protocol defined!', msg);
+						break;
+					}
 			}
-			else { //ntlmV2
-				const connData = {
-					username: node.authconf.user,
-					lm_password: httpntlm.ntlm.create_LM_hashed_password(node.authconf.pass),
-					nt_password: httpntlm.ntlm.create_NT_hashed_password(node.authconf.pass),
-					domain: node.authconf.doman,
-					workstation: '',
-					headers: (typeof msg.headers==='undefined')?{}:msg.headers
-				};
-			}
-
+		
 			switch(parseInt(node.method)){
 				case 0: // GET
 					{
@@ -97,5 +109,5 @@ module.exports = function (RED) {
 		});
 	}
 
-	RED.nodes.registerType("http-ntlm-req", HttpNtlmReqNode);
+	RED.nodes.registerType("http-ntlmV2-req", HttpNtlmV2ReqNode);
 }
