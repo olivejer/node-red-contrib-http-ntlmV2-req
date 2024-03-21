@@ -41,8 +41,7 @@ module.exports = function (RED) {
 			var params = (typeof msg.params==='undefined')?"":msg.params;
 			var url = (typeof msg.url==='undefined')?node.url:msg.url;
 
-			if(node.protocol == 1) // ntlmV1
-			{
+			if(node.protocol == 1) { //ntlmV1
 				const connData = {
 					username: node.authconf.user,
 					password: node.authconf.pass,
@@ -50,7 +49,8 @@ module.exports = function (RED) {
 					workstation: '',
 					headers: (typeof msg.headers==='undefined')?{}:msg.headers
 				};
-			}else{ //ntlmV2
+			}
+			else { //ntlmV2
 				const connData = {
 					username: node.authconf.user,
 					lm_password: httpntlm.ntlm.create_LM_hashed_password(node.authconf.pass),

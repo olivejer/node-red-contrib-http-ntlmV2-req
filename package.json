@@ -1,15 +1,15 @@
 {
-	"name": "@betaathe/node-red-contrib-http-ntlm-req",
+	"name": "@olivejer/node-red-contrib-http-ntlmV2-req",
 	"description": "HTTP request with NTLM",
-	"version": "0.2.1",
+	"version": "0.0.1",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/BetaAthe/node-red-contrib-http-ntlm-req.git"
 	},
 	"node-red": {
 		"nodes": {
-			"http-ntlm-req": "http-ntlm-req.js",
-			"http-ntlm-req-config": "http-ntlm-req-config.js"
+			"http-ntlm-req": "http-ntlmV2-req.js",
+			"http-ntlm-req-config": "http-ntlmV2-req-config.js"
 		}
 	},
 	"dependencies": {
@@ -19,6 +19,7 @@
 		"node-red",
 		"http",
 		"ntlm",
+		"ntlmV2",
 		"auth"
 	],
 	"main": "index.js",
@@ -41,6 +42,10 @@
 		{
 			"name": "BetaAthe",
 			"url": "https://github.com/BetaAthe"
+		}
+		{
+			"name": "Olivejer",
+			"url": "https://github.com/olivejer"
 		}
 	]
 }
